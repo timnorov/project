@@ -1,33 +1,33 @@
 'use strict';
-let money = +prompt('Ваш месячный доход?');
-let income = 'обучение';
-let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-let deposit = confirm('Есть ли у вас депозит в банке?');
-let mission = 1000000;
-let period = 12;
-let budgetDay = 0;
-let expenses1 = prompt('Введите обязательную статью расходов?');
-let amount1 = +prompt('Во сколько это обойдется?');
-let expenses2 = prompt('Введите обязательную статью расходов?');
-let amount2 = +prompt('Во сколько это обойдется?');
-let accumulatedMonth = 0;
+let money = +prompt('Ваш месячный доход?'),
+  income = 'обучение',
+  addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
+  deposit = confirm('Есть ли у вас депозит в банке?'),
+  mission = 1000000,
+  period = 12,
+  budgetDay = 0,
+  expenses1 = prompt('Введите обязательную статью расходов?'),
+  amount1 = +prompt('Во сколько это обойдется?'),
+  expenses2 = prompt('Введите обязательную статью расходов?'),
+  amount2 = +prompt('Во сколько это обойдется?'),
+  accumulatedMonth = 0;
 
-const getExpensesMonth = function(a, b) {
+let getExpensesMonth = function(a, b) {
   return a + b;
 };
 
-const getAccumulatedMonth = function(a, b, c) {
+let getAccumulatedMonth = function(a, b, c) {
   accumulatedMonth = a - ( b + c);
 };
 getAccumulatedMonth(money, amount1, amount2);
 
 budgetDay = accumulatedMonth / 30;
 
-const getTargetMonth = function(a, b) { 
+let getTargetMonth = function(a, b) { 
   return a / b;
 };
 
-const getStatusIncome = function () { 
+let getStatusIncome = function () { 
   if (budgetDay > 1200) {
     return ('У Вас высокий уровень дохода');
   } else if (budgetDay > 600 && budgetDay <= 1200) {
