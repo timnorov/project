@@ -1,23 +1,23 @@
 'use strict';
 
-const calculate = document.getElementById('start');
-const plus1 = document.getElementsByTagName('button')[0];
-const plus2 = document.getElementsByTagName('button')[1];
-const chkbox = document.querySelector('#deposit-check');
-const additionalIncome = document.querySelectorAll('additional_income-item');
-const budgetDay = document.getElementsByClassName('budget_day-value');
-const expensesMonth = document.getElementsByClassName('expenses_month-value');
-const addIncome = document.getElementsByClassName('additional_income-value');
-const addExpenses = document.getElementsByClassName('additional_expenses-value');
-const incomePeriod = document.getElementsByClassName('income_period-value');
-const targetMonth = document.getElementsByClassName('target_month-value');
-const salaryAmount = document.querySelector('.salary-amount');
-const incomeTitle = document.querySelector('.income-title');
-const incomeAmount = document.querySelector('.income-amount');
-const expensesTitle = document.querySelector('.expenses-title');
-const expensesAmount = document.querySelector('.expenses-amount');
-const targetAmount = document.querySelector('.target-amount');
-const periodSelect = document.querySelector('.period-select');
+let calculate = document.getElementById('start'),
+    plus1 = document.getElementsByTagName('button')[0],
+    plus2 = document.getElementsByTagName('button')[1],
+    chkbox = document.querySelector('#deposit-check'),
+    additionalIncome = document.querySelectorAll('additional_income-item'),
+    budgetDay = document.getElementsByClassName('budget_day-value')[0],
+    expensesMonth = document.getElementsByClassName('expenses_month-value')[0],
+    addIncome = document.getElementsByClassName('additional_income-value')[0],
+    addExpenses = document.getElementsByClassName('additional_expenses-value')[0],
+    incomePeriod = document.getElementsByClassName('income_period-value')[0],
+    targetMonth = document.getElementsByClassName('target_month-value')[0],
+    salaryAmount = document.querySelector('.salary-amount'),
+    incomeTitle = document.querySelector('.income-title'),
+    incomeAmount = document.querySelector('.income-amount'),
+    expensesTitle = document.querySelector('.expenses-title'),
+    expensesAmount = document.querySelector('.expenses-amount'),
+    targetAmount = document.querySelector('.target-amount'),
+    periodSelect = document.querySelector('.period-select');
 
 let isNumber = function (n) { 
   return !isNaN(parseFloat(n)) && isFinite(n);
