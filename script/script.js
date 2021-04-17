@@ -248,6 +248,7 @@ let appData = {
           start.style.display = 'block';
           expensesPlus.removeAttribute('disabled');
           incomePlus.removeAttribute('disabled');
+	  periodSelect.removeAttribute('disabled');
           depositCheck.checked = false;
           depositCheck.disabled = false;
       }
