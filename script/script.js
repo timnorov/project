@@ -31,24 +31,26 @@ const start = document.getElementById('start'),
 let   expensesItems = document.querySelectorAll('.expenses-items'),
       incomeItems = document.querySelectorAll('.income-items'),
       additionalExpensesItem = document.querySelector('.additional_expenses-item'),
+      inputs = document.getElementsByTagName("input"),
       newData = {};
 
 start.setAttribute("disabled", "disabled");
 const checkInput = function() {
     const summInputs = document.querySelectorAll('input[placeholder="Сумма"]');
-    const percentInput = document.querySelectorAll('input[placeholder="Процент"]');
     const nameInputs = document.querySelectorAll('input[placeholder="Наименование"]');
+    const percentInput = document.querySelectorAll('input[placeholder="Процент"]');
 
     percentInput.forEach(input => {
         input.addEventListener('input', event => {
             event.target.value = event.target.value.replace (/\D/, '');
             if (depositPercent.value > 100 || depositPercent.value < 1) {
-              alert('Введите корректный процент');
               depositPercent.value = '';
-            start.setAttribute("disabled", "disabled");
+              alert('Введите корректный процент');
+              start.setAttribute("disabled", "disabled");
             } else {
-            start.removeAttribute("disabled");
-        }
+
+              start.removeAttribute("disabled");
+            }
         });
     });
 
@@ -91,25 +93,31 @@ class AppData {
         start.setAttribute('disabled', true);
         return;
       }
-
+      
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type === 'text') {
+        inputs[i].disabled = true;
+        }
+      }
       cancel.style.display = 'block';
       start.style.display = 'none';
-      salaryAmount.disabled = true;
-      incomeTitle[1].disabled = true;
-      incomeAmount.disabled = true;
-      expensesTitle[1].disabled = true;
-      expensesAmount.disabled = true;
-      additionalIncomeItem[0].disabled = true;
-      additionalIncomeItem[1].disabled = true;
-      additionalExpensesItem.disabled = true;
-      targetAmount.disabled = true;
-      expensesPlus.disabled = true;
-      incomePlus.disabled = true;
+      // salaryAmount.disabled = true;
+      // incomeTitle[1].disabled = true;
+      // incomeAmount.disabled = true;
+      // expensesTitle[1].disabled = true;
+      // expensesAmount.disabled = true;
+      // additionalIncomeItem[0].disabled = true;
+      // additionalIncomeItem[1].disabled = true;
+      // additionalExpensesItem.disabled = true;
+      // targetAmount.disabled = true;
+      // expensesPlus.disabled = true;
+      // incomePlus.disabled = true;
       depositCheck.disabled = true;
       periodSelect.disabled = true;
       depositAmount.disabled = true;
       depositBank.disabled = true;
       depositPercent.disabled = true;
+      
 
       this.budget = +salaryAmount.value;
 
@@ -369,7 +377,7 @@ const showText = function () {
       incomePeriodValue.value = localStorage.incomePeriod;
  };
 
- showText();
+ 
 
  if (localStorage.getItem('budgetMonth') !== null) {
       cancel.style.display = 'block';
@@ -390,6 +398,8 @@ const showText = function () {
       depositAmount.disabled = true;
       depositBank.disabled = true;
       depositPercent.disabled = true;
+
+      showText();
  }
 
 let count = 0;
